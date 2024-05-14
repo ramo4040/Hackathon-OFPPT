@@ -23,7 +23,6 @@ This project demonstrates a basic user authentication system implemented in nati
 
 1. Clone this repository to your web server directory.
 2. Create a MySQL database and configure the database credentials in `config.php`.
-3. Set up your web server to point to the project's root directory. 
 
 ## Usage:
 
