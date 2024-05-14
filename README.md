@@ -1,4 +1,4 @@
-# Simple PHP User Authentication System
+# Building a Secured User Authentication System
 
 This project demonstrates a basic user authentication system implemented in native PHP, utilizing a simple router and a service container for dependency management. 
 
