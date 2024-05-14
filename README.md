@@ -26,7 +26,7 @@ This project demonstrates a basic user authentication system implemented in nati
 
 ## Usage:
 
-1. Access the application through your web browser (e.g., `http://localhost/hackathon/`).
+1. Access the application through your web browser (e.g., `http://localhost/hackathon/ + endpoint`).
 2. You will be presented with the login page.
 3. To register a new account, click on the "Register" link.
 4. Once registered and logged in, you will be redirected to the dashboard.
