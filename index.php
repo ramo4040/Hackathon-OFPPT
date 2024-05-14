@@ -2,6 +2,7 @@
 
 <?php
 
+require_once 'App/Config/Init.php';
 require_once 'App/Helper/Autoloader.php';
 require_once 'App/Config/Container.php';
 require_once 'App/Routes/api.php';
