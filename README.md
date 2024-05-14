@@ -2,6 +2,13 @@
 
 This project demonstrates a basic user authentication system implemented in native PHP, utilizing a simple router and a service container for dependency management. 
 
+<p align="center"> 
+   <img src='public/images/1.png' width='410'> 
+   <img src='public/images/2.png' width='410'> 
+   <img src='public/images/1.gif'> 
+</p>
+
+
 ## Features:
 
 * **Registration:** Users can create new accounts with unique usernames and passwords.
