@@ -58,8 +58,10 @@ class AuthController {
     }
 
     public function logOut() {
+        session_regenerate_id(true);
+        setcookie(session_name(), '', time() - 42000, '/');
         session_destroy();
-        header('Location: ./login');
-
+        header('Location: http://localhost/hackathon/login');
+        exit;
     }
 }
