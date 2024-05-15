@@ -34,8 +34,6 @@ class AuthService {
             ]
         );
 
-
-
         if ($this->validator->fails()) {
             return ['success' => false, 'errors' => $this->validator->getErrors()];
         }
@@ -50,7 +48,7 @@ class AuthService {
 
         if ($result['success']) {
             header('Location: ./login');
-            return ['success' => true, 'user_id' => $result['user_id']];
+            return ['success' => true];
         }
 
         return $result;
@@ -73,20 +71,23 @@ class AuthService {
     }
 
     public function login($data) {
-        $result = $this->model->validateUser($data);
+        if (isset($_POST['csrf_token']) && $_POST['csrf_token'] === $_SESSION['csrf_token']) {
+            $result = $this->model->validateUser($data);
 
-        if ($result['success']) {
-            if (password_verify($result['user']['salt'] . $data['password'], $result['user']['password_hash'])) {
-                session_regenerate_id(true);
-                $_SESSION['full_name']  = $result['user']['full_name'];
-                header('Location: ./dashboard');
-                exit;
+            if ($result['success']) {
+                if (password_verify($result['user']['salt'] . $data['password'], $result['user']['password_hash'])) {
+                    $_SESSION['full_name']  = $result['user']['full_name'];
+                    header('Location: ./dashboard');
+                    exit;
+                }
             }
+
+            return [
+                'success' => false,
+                'errors' => ['null' => 'Email or Password incorrect']
+            ];
         }
 
-        return [
-            'success' => false,
-            'errors' => ['null' => 'Email or Password incorrect']
-        ];
+        return ['success' => false];
     }
 }
