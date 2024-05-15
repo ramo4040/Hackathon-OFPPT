@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Services\AuthService;
-use App\View\ErrorView;
 use App\View\Login\MainView;
 use App\View\Login\SignInView;
 use App\View\Login\SignUpView;
@@ -26,34 +25,40 @@ class AuthController {
     }
 
     public function register() {
-        $validationResult = $this->service->validateRegistration($_POST);
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-        if (!$validationResult['success']) {
-            $this->showSignupForm($validationResult['errors']);
-            return;
-        }
+            $validationResult = $this->service->validateRegistration($_POST);
 
-        $result = $this->service->register($_POST);
+            if (!$validationResult['success']) {
+                $this->showSignupForm($validationResult['errors']);
+                return;
+            }
 
-        if (!$result['success']) {
-            $this->showSignupForm($result['errors']);
-            return;
+            $result = $this->service->register($_POST);
+
+            if (!$result['success']) {
+                $this->showSignupForm($result['errors']);
+                return;
+            }
         }
     }
 
     public function login() {
-        $validationResult = $this->service->validateLogin($_POST);
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $validationResult = $this->service->validateLogin($_POST);
 
-        if (!$validationResult['success']) {
-            $this->showLoginForm($validationResult['errors']);
-            return;
-        }
+            if (!$validationResult['success']) {
+                $this->showLoginForm($validationResult['errors']);
+                return;
+            }
 
-        $result = $this->service->login($_POST);
+            $result = $this->service->login($_POST);
 
-        if (!$result['success']) {
-            $this->showLoginForm($result['errors']);
-            return;
+            if (!$result['success']) {
+                $errors = $result['errors'] ?? '';
+                $this->showLoginForm($errors);
+                return;
+            }
         }
     }
 
