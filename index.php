@@ -11,6 +11,8 @@ session_set_cookie_params([
     'path' => '/',
     'secure' => true,
     'httponly' => true,
+    'samesite' => 'Strict' // Helps mitigate CSRF attacks
+
 ]);
 
 
