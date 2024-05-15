@@ -4,6 +4,7 @@ namespace App\View\Login;
 
 class SignInView {
     public static function render($errors) {
+        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
         ob_start();
 ?>
         <p>
@@ -13,7 +14,7 @@ class SignInView {
         </p>
 
         <form method="post" action="./login" class="__input-group">
-        <form method="post" action="./login" class="__input-group">
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
             <div>
                 <div>
                     <span><?= $errors['null'] ?? '' ?></span>
@@ -26,7 +27,7 @@ class SignInView {
                     </div>
                     <div>
                         <div class="input">
-                            <input type="text" id="password" name="password" placeholder=" ">
+                            <input type="password" id="password" name="password" placeholder=" ">
                             <label for="password">Password</label>
                         </div>
                         <span><?= $errors['password'][0] ?? '' ?></span>

@@ -7,6 +7,7 @@ class Config {
     const DB_DATABASE = "hack";
 
     public static $info = [
+        "DB_SERVER" => self::DB_SERVER,
         "DB_USER" => "root",
         "DB_PASSWORD" => "123456",
         "DB_DSN" => "mysql:host=" . self::DB_SERVER . ";dbname=" . self::DB_DATABASE

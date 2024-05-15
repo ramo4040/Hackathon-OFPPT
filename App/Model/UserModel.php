@@ -33,7 +33,7 @@ class UserModel {
                 ]
             );
 
-            return ['success' => true, 'user_id' => $this->db->lastInsertId()];
+            return ['success' => true];
         } catch (PDOException $e) {
             if ($e->getCode() == 23000) { // Duplicate entry error
                 return [

@@ -56,7 +56,7 @@ class SignUpView {
 
                     <div>
                         <div class="input">
-                            <input type="text" id="password" name="password" placeholder=" ">
+                            <input type="password" id="password" name="password" placeholder=" ">
                             <label for="password">Password</label>
                         </div>
                         <span><?= $errors['password'][0] ?? '' ?></span>
@@ -64,7 +64,7 @@ class SignUpView {
 
                     <div>
                         <div class="input">
-                            <input type="text" id="confirm_password" name="confirm password" placeholder=" ">
+                            <input type="password" id="confirm_password" name="confirm password" placeholder=" ">
                             <label for="confirm_password">Confirm password</label>
                         </div>
                         <span><?= $errors['confirm_password'][0] ?? '' ?></span>
