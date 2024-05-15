@@ -77,6 +77,7 @@ class AuthService {
 
         if ($result['success']) {
             if (password_verify($result['user']['salt'] . $data['password'], $result['user']['password_hash'])) {
+                session_regenerate_id();
                 $_SESSION['full_name']  = $result['user']['full_name'];
                 header('Location: ./dashboard');
                 exit;
