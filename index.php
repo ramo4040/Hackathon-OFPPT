@@ -12,6 +12,8 @@ session_set_cookie_params([
     'httponly' => true,
     'samesite' => 'Strict' // Helps mitigate CSRF attacks
 ]);
+session_name('s_h_session_id');
+
 
 require_once 'App/Config/Init.php';
 require_once 'App/Helper/Autoloader.php';
