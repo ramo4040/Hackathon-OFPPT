@@ -13,6 +13,7 @@ class SignInView {
         </p>
 
         <form method="post" action="./login" class="__input-group">
+        <form method="post" action="./login" class="__input-group">
             <div>
                 <div>
                     <span><?= $errors['null'] ?? '' ?></span>
