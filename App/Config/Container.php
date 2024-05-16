@@ -1,15 +1,15 @@
 <?php
 
-namespace app\Config;
+namespace App\Config;
 
 use App\Config\DataBase;
 use App\Controller\AuthController;
 use App\Controller\DashboardController;
-use app\Core\App;
+use App\Core\App;
 use App\Helper\Validator;
 use App\Model\UserModel;
 use App\Services\AuthService;
-use app\Services\Container;
+use App\Services\Container;
 use App\View\Dashboard\DashboardView;
 
 $container = new Container();
