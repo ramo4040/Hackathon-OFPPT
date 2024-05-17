@@ -8,10 +8,8 @@ use App\View\Login\SignInView;
 use App\View\Login\SignUpView;
 
 class AuthController {
-    private AuthService $service;
-
-    public function __construct(AuthService $service) {
-        $this->service = $service;
+    
+    public function __construct(private AuthService $service) {
     }
 
     public function showSignupForm($errors = null) {
