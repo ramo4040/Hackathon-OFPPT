@@ -6,12 +6,10 @@ use App\Helper\Validator;
 use App\Model\UserModel;
 
 class AuthService {
-    private UserModel $model;
-    private Validator $validator;
-
-    public function __construct(UserModel $model, Validator $validator) {
-        $this->model = $model;
-        $this->validator = $validator;
+    public function __construct(
+        private UserModel $model,
+        private Validator $validator
+    ) {
     }
 
     public function validateRegistration($data) {
